@@ -1,0 +1,629 @@
+/* ==========================================================================
+   1. VARIÁVEIS E DESIGN SYSTEM (CORES, TEMA CLARO E ESCURO)
+   ========================================================================== */
+:root {
+  /* Cores principais: azul, roxo e branco */
+  --cor-fundo: #ffffff;
+  --cor-superficie: #f8f9fa;
+  --cor-texto: #222222;
+  --cor-texto-suave: #555555;
+  --cor-primaria: #0056b3; /* Azul */
+  --cor-secundaria: #6f42c1; /* Roxo */
+  --cor-borda: #dddddd;
+  --cor-cabecalho-rodape: #0056b3; /* Azul no cabeçalho e rodapé */
+  --cor-texto-cabecalho-rodape: #ffffff; /* Texto branco no cabeçalho e rodapé */
+}
+
+/* Troca de variáveis para o modo escuro */
+body.modo-escuro {
+  --cor-fundo: #121212;
+  --cor-superficie: #1e1e1e;
+  --cor-texto: #f5f5f5;
+  --cor-texto-suave: #cccccc;
+  --cor-primaria: #4ba3e3; /* Azul adaptado para fundo escuro */
+  --cor-secundaria: #a370f7; /* Roxo adaptado para fundo escuro */
+  --cor-borda: #333333;
+  --cor-cabecalho-rodape: #3c1b63; /* Roxo no cabeçalho e rodapé no modo escuro */
+  --cor-texto-cabecalho-rodape: #ffffff;
+}
+
+/* ==========================================================================
+   2. ESTILOS GERAIS E RESET BÁSICO
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   3. CONTAINER E ESTRUTURA
+   ========================================================================== */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.secao {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.titulo-secao {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+  margin-bottom: 30px;
+}
+
+/* Botões reutilizáveis */
+.botao-primario,
+.botao-secundario {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botao-primario {
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  border: 1px solid var(--cor-primaria);
+}
+
+.botao-secundario {
+  background-color: transparent;
+  color: var(--cor-secundaria);
+  border: 1px solid var(--cor-secundaria);
+}
+
+/* ==========================================================================
+   4. CABEÇALHO E MENU EM ABAS
+   ========================================================================== */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--cor-cabecalho-rodape);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.conteudo-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--cor-texto-cabecalho-rodape);
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lista-abas {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.aba-link {
+  text-decoration: none;
+  color: var(--cor-texto-cabecalho-rodape);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.botao-tema {
+  background-color: transparent;
+  color: var(--cor-texto-cabecalho-rodape);
+  border: 1px solid var(--cor-texto-cabecalho-rodape);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.topo-logo-mobile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.botao-menu-mobile {
+  display: none;
+}
+
+.informacoes-cabecalho {
+  font-size: 0.85rem;
+  color: var(--cor-texto-cabecalho-rodape);
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Responsividade do cabeçalho */
+@media (max-width: 768px) {
+  .conteudo-cabecalho {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .topo-logo-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .botao-menu-mobile {
+    display: block;
+    background-color: transparent;
+    border: 1px solid var(--cor-texto-cabecalho-rodape);
+    color: var(--cor-texto-cabecalho-rodape);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .informacoes-cabecalho {
+    font-size: 0.8rem;
+  }
+
+  .navegacao {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .lista-abas {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .lista-abas.menu-aberto {
+    display: flex;
+  }
+
+  .aba-link {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ==========================================================================
+   5. SEÇÃO INÍCIO (HOME)
+   ========================================================================== */
+.secao-inicio {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.conteudo-inicio {
+  max-width: 800px;
+}
+
+.saudacao-inicio {
+  font-size: 1.1rem;
+  color: var(--cor-secundaria);
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.titulo-inicio {
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  color: var(--cor-texto);
+}
+
+.titulo-piramide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.linha-piramide {
+  display: block;
+}
+
+.destaque-nome {
+  color: var(--cor-primaria);
+}
+
+.descricao-inicio {
+  font-size: 1.2rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.acoes-inicio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Responsividade da seção Início */
+@media (max-width: 768px) {
+  .secao-inicio {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .titulo-inicio {
+    font-size: 2rem;
+  }
+
+  .descricao-inicio {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==========================================================================
+   6. SEÇÃO SOBRE MIM
+   ========================================================================== */
+.conteudo-sobre {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.caixa-foto {
+  flex-shrink: 0;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cor-primaria);
+  background-color: var(--cor-superficie);
+  display: block;
+}
+
+.texto-sobre {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.perfil-destaque {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--cor-secundaria);
+}
+
+.descricao-pessoal {
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.7;
+}
+
+.acoes-sobre {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Responsividade da seção Sobre */
+@media (max-width: 768px) {
+  .conteudo-sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acoes-sobre {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================================================
+   7. SEÇÃO PROJETOS
+   ========================================================================== */
+.grade-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.cartao-projeto {
+  flex: 1 1 300px;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titulo-projeto {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+  margin-bottom: 12px;
+}
+
+.imagem-projeto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.descricao-projeto {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.links-projeto {
+  display: flex;
+  gap: 16px;
+}
+
+.link-projeto {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--cor-primaria);
+}
+
+/* Responsividade da seção Projetos */
+@media (max-width: 600px) {
+  .grade-projetos {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   8. SEÇÃO CONTATO
+   ========================================================================== */
+.secao-contato {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.conteudo-contato {
+  max-width: 650px;
+}
+
+.descricao-contato {
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.formulario-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rotulo-campo {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+.campo-texto {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto);
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+}
+
+.campo-texto:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.campo-mensagem {
+  resize: vertical;
+}
+
+.botao-enviar {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.mensagem-feedback {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-radius: 4px;
+  background-color: var(--cor-superficie);
+  border-left: 4px solid var(--cor-primaria);
+  color: var(--cor-texto);
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.mensagem-oculta {
+  display: none;
+}
+
+/* Responsividade da seção Contato */
+@media (max-width: 600px) {
+  .botao-enviar {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   9. SEÇÃO LOGIN
+   ========================================================================== */
+.secao-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.cartao-login {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  padding: 35px;
+}
+
+.descricao-login {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.botao-login {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.mensagem-sucesso {
+  border-left-color: var(--cor-primaria);
+}
+
+.mensagem-erro {
+  border-left-color: #d9534f;
+  color: #d9534f;
+}
+
+/* Responsividade da seção Login */
+@media (max-width: 600px) {
+  .cartao-login {
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   10. RODAPÉ
+   ========================================================================== */
+.rodape {
+  background-color: var(--cor-cabecalho-rodape);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 40px;
+}
+
+.conteudo-rodape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.texto-rodape {
+  font-size: 0.9rem;
+  color: var(--cor-texto-cabecalho-rodape);
+}
+
+/* ==========================================================================
+   11. EFEITOS DE HOVER E TRANSIÇÕES
+   (Todos os efeitos do site ficam agrupados neste bloco ao final)
+   ========================================================================== */
+body,
+.cabecalho,
+.aba-link,
+.botao-tema,
+.botao-menu-mobile,
+.botao-primario,
+.botao-secundario,
+.cartao-projeto,
+.link-projeto,
+.campo-texto,
+.rodape {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.botao-menu-mobile:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.aba-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-cabecalho-rodape);
+}
+
+.botao-tema:hover {
+  background-color: var(--cor-texto-cabecalho-rodape);
+  color: var(--cor-cabecalho-rodape);
+}
+
+.botao-primario:hover {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.botao-secundario:hover {
+  background-color: var(--cor-superficie);
+}
+
+.cartao-projeto:hover {
+  border-color: var(--cor-primaria);
+}
+
+.link-projeto:hover {
+  color: var(--cor-secundaria);
+}
+

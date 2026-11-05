@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Gabriel Nunes Carvalho</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Cabeçalho fixo no topo com navegação em abas e botão de modo escuro -->
+  <header class="cabecalho">
+    <div class="container conteudo-cabecalho">
+      <div class="topo-logo-mobile">
+        <a href="login.html" class="logo">Gabriel Nunes Carvalho</a>
+        <button id="botao-menu-mobile" class="botao-menu-mobile" type="button" aria-label="Abrir menu de navegação">☰</button>
+      </div>
+      <div id="informacoes-cabecalho" class="informacoes-cabecalho"></div>
+      <nav class="navegacao">
+        <ul class="lista-abas">
+          <li><a href="login.html" class="aba-link" id="link-login">Login</a></li>
+        </ul>
+        <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar modo escuro">🌙 Modo escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal da página de login -->
+  <main class="container">
+    <section class="secao secao-login">
+      <div class="cartao-login">
+        <h1 class="titulo-secao">Entrar no sistema</h1>
+        <p class="descricao-login">Área demonstrativa. Digite um e-mail e senha para testar a simulação:</p>
+
+        <form id="formulario-login" class="formulario-login">
+          <div class="campo-grupo">
+            <label for="email-login" class="rotulo-campo">E-mail</label>
+            <input type="email" id="email-login" name="email" class="campo-texto" placeholder="seuemail@exemplo.com"
+              required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="senha-login" class="rotulo-campo">Senha</label>
+            <input type="password" id="senha-login" name="senha" class="campo-texto" placeholder="Sua senha" required>
+          </div>
+
+          <button type="submit" id="botao-entrar" class="botao-primario botao-login">Entrar</button>
+        </form>
+
+        <p id="mensagem-login-sucesso" class="mensagem-feedback mensagem-sucesso mensagem-oculta">Login confirmado com sucesso! Redirecionando para a página inicial...</p>
+        <p id="mensagem-login-erro" class="mensagem-feedback mensagem-erro mensagem-oculta">Por favor, preencha todos os
+          campos para continuar.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé com informações de direitos -->
+  <footer class="rodape">
+    <div class="container conteudo-rodape">
+      <p class="texto-rodape">&copy; 2026 Gabriel Nunes Carvalho. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+</body>
+
+</html>

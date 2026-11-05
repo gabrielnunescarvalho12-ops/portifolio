@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Gabriel Nunes Carvalho</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Cabeçalho fixo no topo com navegação em abas e botão de modo escuro -->
+  <header class="cabecalho">
+    <div class="container conteudo-cabecalho">
+      <div class="topo-logo-mobile">
+        <a href="index.html#inicio" class="logo">Gabriel Nunes Carvalho</a>
+        <button id="botao-menu-mobile" class="botao-menu-mobile" type="button"
+          aria-label="Abrir menu de navegação">☰</button>
+      </div>
+      <div id="informacoes-cabecalho" class="informacoes-cabecalho"></div>
+      <nav class="navegacao">
+        <ul class="lista-abas">
+          <li><a href="index.html#inicio" class="aba-link">Início</a></li>
+          <li><a href="index.html#sobre" class="aba-link">Sobre</a></li>
+          <li><a href="index.html#projetos" class="aba-link">Projetos</a></li>
+          <li><a href="contato.html" class="aba-link">Contato</a></li>
+          <li><a href="login.html" class="aba-link" id="link-login">Login</a></li>
+        </ul>
+        <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar modo escuro">🌙 Modo
+          escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal da página de contato -->
+  <main class="container">
+    <section class="secao secao-contato">
+      <h1 class="titulo-secao">Contato</h1>
+      <div class="conteudo-contato">
+        <p class="descricao-contato">Gostou do meu perfil ou tem alguma proposta de oportunidade?
+          Envie uma mensagem pelo formulário abaixo:</p>
+
+        <form id="formulario-contato" class="formulario-contato" novalidate>
+          <div class="campo-grupo">
+            <label for="nome" class="rotulo-campo">Nome</label>
+            <input type="text" id="nome" name="nome" class="campo-texto" placeholder="Seu nome completo" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="email" class="rotulo-campo">E-mail</label>
+            <input type="email" id="email" name="email" class="campo-texto" placeholder="seuemail@exemplo.com" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="telefone" class="rotulo-campo">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" class="campo-texto" placeholder="(00) 00000-0000" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="mensagem" class="rotulo-campo">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" class="campo-texto campo-mensagem" rows="5"
+              placeholder="Escreva sua mensagem aqui..." required></textarea>
+          </div>
+
+          <button type="submit" id="botao-enviar" class="botao-primario botao-enviar">Enviar mensagem</button>
+        </form>
+
+        <p id="mensagem-feedback" class="mensagem-feedback mensagem-sucesso mensagem-oculta">Obrigado pelo contato! Sua
+          mensagem foi enviada com sucesso.</p>
+        <p id="mensagem-erro-contato" class="mensagem-feedback mensagem-erro mensagem-oculta"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé com informações de direitos -->
+  <footer class="rodape">
+    <div class="container conteudo-rodape">
+      <p class="texto-rodape">&copy; 2026 Gabriel Nunes Carvalho. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="contato.js"></script>
+</body>
+
+</html>
