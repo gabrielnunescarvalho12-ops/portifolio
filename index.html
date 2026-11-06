@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel Nunes Carvalho | Portfólio</title>
+  <title>Login | Gabriel Nunes Carvalho</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,86 +14,47 @@
   <header class="cabecalho">
     <div class="container conteudo-cabecalho">
       <div class="topo-logo-mobile">
-        <a href="#inicio" class="logo">Gabriel Nunes Carvalho</a>
+        <a href="login.html" class="logo">Gabriel Nunes Carvalho</a>
         <button id="botao-menu-mobile" class="botao-menu-mobile" type="button"
           aria-label="Abrir menu de navegação">☰</button>
       </div>
       <div id="informacoes-cabecalho" class="informacoes-cabecalho"></div>
       <nav class="navegacao">
         <ul class="lista-abas">
-          <li><a href="#inicio" class="aba-link">Início</a></li>
-          <li><a href="#sobre" class="aba-link">Sobre</a></li>
-          <li><a href="#projetos" class="aba-link">Projetos</a></li>
-          <li><a href="contato.html" class="aba-link">Contato</a></li>
           <li><a href="login.html" class="aba-link" id="link-login">Login</a></li>
         </ul>
-        <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar modo escuro">🌙
-          modo-escuro</button>
+        <button id="botao-tema" class="botao-tema" type="button" aria-label="Alternar modo escuro">🌙 Modo
+          escuro</button>
       </nav>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
+  <!-- Conteúdo principal da página de login -->
   <main class="container">
-    <!-- Seção Início (Home) -->
-    <section id="inicio" class="secao secao-inicio">
-      <div class="conteudo-inicio">
-        <p class="saudacao-inicio">Olá, bem-vindo(a) ao meu portfólio!</p>
-        <h1 class="titulo-inicio titulo-piramide">
-          <span class="linha-piramide">Eu sou</span>
-          <span class="linha-piramide destaque-nome">Gabriel Nunes Carvalho</span>
-        </h1>
-        <p class="descricao-inicio">Sou um desenvolvedor em formação, apaixonado por tecnologia e programação.
-          Tenho conhecimentos em HTML, CSS, JavaScript, Python e C, com interesse em desenvolvimento web, criação de
-          sistemas e
-          soluções digitais. Estou sempre buscando aprender novas tecnologias, aprimorar minhas habilidades e
-          desenvolver projetos que
-          transformem ideias em realidade.</p>
-        <div class="acoes-inicio">
-          <a href="#projetos" class="botao-primario">Conhecer meu trabalho</a>
-          <a href="https://github.com/gabrielnunescarvalho12-ops" class="botao-secundario" target="_blank"
-            rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:gabrielnunescarvalho12@gmail.com" class="botao-secundario">E-mail</a>
-        </div>
-      </div>
-    </section>
+    <section class="secao secao-login">
+      <div class="cartao-login">
+        <h1 class="titulo-secao">Entrar no sistema</h1>
+        <p class="descricao-login">Área demonstrativa. Digite um e-mail e senha para testar a simulação:</p>
 
-    <!-- Seção Sobre Mim -->
-    <section id="sobre" class="secao secao-sobre">
-      <h2 class="titulo-secao">Sobre mim</h2>
-      <div class="conteudo-sobre">
-        <div class="caixa-foto">
-          <img src="img/perfil.jpg" alt="Foto de perfil de Gabriel Nunes Carvalho" class="foto-perfil">
-        </div>
-        <div class="texto-sobre">
-          <p class="descricao-pessoal">Sou estudante do Colégio Estadual Profª Ivone Soares Castanharo,
-            com formação voltada à área de Tecnologia da Informação, especialmente em Informática e
-            Desenvolvimento de Sistemas. Também possuo conhecimentos em Administração, Gestão Administrativa, Recursos
-            Humanos,
-            Departamento Pessoal, Operação de Caixa e Técnicas de Vendas.</p>
-          <p class="descricao-pessoal">Minha trajetória inclui estudos em desenvolvimento de sistemas, programação e
-            gestão,
-            além de participação no projeto Estudante Nota 10 e no Bootcamp Integrado.</p>
-          <p class="descricao-pessoal">Busco constantemente ampliar meus conhecimentos, desenvolver minhas habilidades
-            técnicas
-            e adquirir experiência na área de tecnologia, com foco em programação, desenvolvimento web e criação de
-            sistemas e
-            soluções digitais.</p>
-          <div class="acoes-sobre">
-            <a href="https://github.com/gabrielnunescarvalho12-ops" class="botao-secundario" target="_blank"
-              rel="noopener noreferrer">Acessar
-              GitHub</a>
-            <a href="contato.html" class="botao-primario">Entrar em contato</a>
+        <form id="formulario-login" class="formulario-login">
+          <div class="campo-grupo">
+            <label for="email-login" class="rotulo-campo">E-mail</label>
+            <input type="email" id="email-login" name="email" class="campo-texto" placeholder="seuemail@exemplo.com"
+              required>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Seção Projetos -->
-    <section id="projetos" class="secao secao-projetos">
-      <h2 class="titulo-secao">Projetos</h2>
-      <div class="grade-projetos" id="grade-projetos">
-        <!-- Os cartões de projetos são gerados dinamicamente via script.js -->
+          <div class="campo-grupo">
+            <label for="senha-login" class="rotulo-campo">Senha</label>
+            <input type="password" id="senha-login" name="senha" class="campo-texto" placeholder="Sua senha" required>
+          </div>
+
+          <button type="submit" id="botao-entrar" class="botao-primario botao-login">Entrar</button>
+        </form>
+
+        <p id="mensagem-login-sucesso" class="mensagem-feedback mensagem-sucesso mensagem-oculta">Login confirmado com
+          sucesso! Redirecionando para a página inicial...</p>
+        <p id="mensagem-login-erro" class="mensagem-feedback mensagem-erro mensagem-oculta">Por favor, preencha todos os
+          campos para continuar.</p>
       </div>
     </section>
   </main>
@@ -106,6 +67,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="login.js"></script>
 </body>
 
 </html>
