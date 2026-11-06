@@ -134,7 +134,7 @@ function configurarBotaoSair() {
 function configurarBotaoLogin() {
   if (!linkLogin) return;
   linkLogin.textContent = 'Login';
-  linkLogin.setAttribute('href', 'login.html');
+  linkLogin.setAttribute('href', 'index.html');
 }
 
 // Função responsável por deslogar e resetar dados do usuário
@@ -158,7 +158,7 @@ function deslogarUsuario(evento) {
   atualizarDataHora();
 
   // Redireciona de volta para a tela de login
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 }
 
 // Função responsável por gerenciar o clique na aba de login/sair
