@@ -49,7 +49,7 @@ function salvarSessaoLogin(email) {
 
 // Função responsável por redirecionar para a página inicial (Home)
 function redirecionarParaHome() {
-  window.location.href = 'index.html';
+  window.location.href = 'home.html';
 }
 
 // Função responsável por processar a tentativa de login
