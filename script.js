@@ -1,65 +1,7 @@
-// ==========================================================================
-// RENDERIZAÇÃO DINÂMICA DE PROJETOS (ARRAY E OBJETOS)
-// ==========================================================================
-
-// Array de objetos contendo as informações de cada projeto do portfólio
-const listaProjetos = [
-  {
-    titulo: 'Nunes Play Mídia',
-    imagem: 'img/nunes-play-midia.jpg',
-    alt: 'Capa do projeto Nunes Play Mídia - Portal de notícias sobre cultura pop',
-    descricao: 'Projeto de desenvolvimento de um portal de notícias sobre cultura pop, reunindo conteúdos de animes, filmes, séries, videogames e músicas. A plataforma tem como objetivo apresentar novidades, curiosidades e informações sobre o universo do entretenimento, utilizando tecnologias como HTML, CSS e JavaScript para desenvolver uma experiência dinâmica e acessível aos usuários.',
-    linkRepositorio: 'https://github.com/gabrielnunescarvalho12-ops/cultura_pop_portal_de_noticias.git',
-    linkDemonstracao: '[link-demonstracao]'
-  },
-  {
-    titulo: 'Meu Portfólio',
-    imagem: 'img/meu-portfolio.jpg',
-    alt: 'Capa do projeto Meu Portfólio - Site pessoal para apresentação de habilidades e projetos',
-    descricao: 'Projeto de desenvolvimento de um site pessoal de portfólio, criado para apresentar minhas habilidades, conhecimentos em programação, tecnologias utilizadas e projetos desenvolvidos. A plataforma possui seções sobre mim, competências técnicas, apresentação de projetos e contato, com foco em demonstrar minha evolução na área de desenvolvimento web.',
-    linkRepositorio: 'https://github.com/gabrielnunescarvalho12-ops/projeto-web.git',
-    linkDemonstracao: '[link-demonstracao]'
-  }
-];
-
-// Função responsável por gerar a marcação HTML de um cartão de projeto individual
-function criarCartaoProjeto(projeto) {
-  return `
-    <article class="cartao-projeto">
-      <h3 class="titulo-projeto">${projeto.titulo}</h3>
-      <img src="${projeto.imagem}" alt="${projeto.alt}" class="imagem-projeto">
-      <p class="descricao-projeto">${projeto.descricao}</p>
-      <div class="links-projeto">
-        <a href="${projeto.linkRepositorio}" class="link-projeto" target="_blank" rel="noopener noreferrer">Ver código</a>
-        <a href="${projeto.linkDemonstracao}" class="link-projeto" target="_blank" rel="noopener noreferrer">Ver projeto</a>
-      </div>
-    </article>
-  `;
-}
-
-// Função responsável por renderizar a lista de projetos na página
-function renderizarProjetos() {
-  const gradeProjetos = document.querySelector('#grade-projetos');
-  if (!gradeProjetos) return;
-
-  const cartoesHtml = listaProjetos.map(criarCartaoProjeto).join('');
-  gradeProjetos.innerHTML = cartoesHtml;
-}
-
-// Inicializa a renderização dinâmica dos projetos
-renderizarProjetos();
-// ==========================================================================
-// LAYOUT GLOBAL: TEMA, MENU MOBILE, SAUDAÇÃO E SESSÃO DO CABEÇALHO
-// ==========================================================================
-
-// --------------------------------------------------------------------------
-// 1. CONTROLE DE TEMA (MODO CLARO E MODO ESCURO)
-// --------------------------------------------------------------------------
-
 // Seleciona o botão de tema pelo seu identificador
 const botaoTema = document.querySelector('#botao-tema');
 
-// Função responsável por atualizar o texto e ícone do botão conforme o tema ativo
+// Função responsável por atualizar o texto do botão de acordo com o tema ativo
 function atualizarTextoBotao() {
   if (!botaoTema) return;
   const estaNoModoEscuro = document.body.classList.contains('modo-escuro');
@@ -105,15 +47,15 @@ if (botaoTema) {
   botaoTema.addEventListener('click', alternarModoEscuro);
 }
 
-// --------------------------------------------------------------------------
-// 2. MENU MOBILE (BOTÃO ☰)
-// --------------------------------------------------------------------------
+// ==========================================================================
+// MENU DE NAVEGAÇÃO PARA DISPOSITIVOS MÓVEIS (BOTÃO ☰)
+// ==========================================================================
 
 // Seleciona o botão de menu mobile e a lista de abas
 const botaoMenuMobile = document.querySelector('#botao-menu-mobile');
 const listaAbas = document.querySelector('.lista-abas');
 
-// Função responsável por alternar a visibilidade do menu no celular
+// Função responsável por alternar a abertura do menu no celular
 function alternarMenuMobile() {
   if (listaAbas) {
     listaAbas.classList.toggle('menu-aberto');
@@ -125,9 +67,9 @@ if (botaoMenuMobile) {
   botaoMenuMobile.addEventListener('click', alternarMenuMobile);
 }
 
-// --------------------------------------------------------------------------
-// 3. SAUDAÇÃO E HORA COM NOME DO USUÁRIO NO CABEÇALHO
-// --------------------------------------------------------------------------
+// ==========================================================================
+// SAUDAÇÃO E HORA COM NOME DO USUÁRIO NO CABEÇALHO
+// ==========================================================================
 
 // Seleciona o elemento do cabeçalho destinado às informações de tempo
 const informacoesCabecalho = document.querySelector('#informacoes-cabecalho');
@@ -174,9 +116,9 @@ if (informacoesCabecalho) {
   setInterval(atualizarDataHora, 1000);
 }
 
-// --------------------------------------------------------------------------
-// 4. CONTROLE DO BOTÃO DE LOGIN / SAIR
-// --------------------------------------------------------------------------
+// ==========================================================================
+// CONTROLE DO BOTÃO DE LOGIN / SAIR
+// ==========================================================================
 
 // Seleciona o link da aba de login no cabeçalho
 const linkLogin = document.querySelector('#link-login');
@@ -235,7 +177,7 @@ function verificarEstadoLogin() {
   if (estaLogado) {
     configurarBotaoSair();
   } else {
-    configurarBotaoLogin(); z
+    configurarBotaoLogin();
   }
 
   linkLogin.addEventListener('click', gerenciarCliqueLogin);
@@ -243,3 +185,55 @@ function verificarEstadoLogin() {
 
 // Inicializa a verificação do estado de login
 verificarEstadoLogin();
+
+// ==========================================================================
+// RENDERIZAÇÃO DINÂMICA DE PROJETOS (ARRAY E OBJETOS)
+// ==========================================================================
+
+// Array de objetos contendo as informações de cada projeto do portfólio
+const listaProjetos = [
+  {
+    titulo: 'Nunes Play Mídia',
+    imagem: 'img/nunes-play-midia.jpg',
+    alt: 'Capa do projeto Nunes Play Mídia - Portal de notícias sobre cultura pop',
+    descricao: 'Projeto de desenvolvimento de um portal de notícias sobre cultura pop, reunindo conteúdos de animes, filmes, séries, videogames e músicas. A plataforma tem como objetivo apresentar novidades, curiosidades e informações sobre o universo do entretenimento, utilizando tecnologias como HTML, CSS e JavaScript para desenvolver uma experiência dinâmica e acessível aos usuários.',
+    linkRepositorio: 'https://github.com/gabrielnunescarvalho12-ops/cultura_pop_portal_de_noticias.git',
+    linkDemonstracao: '[link-demonstracao]'
+  },
+  {
+    titulo: 'Meu Portfólio',
+    imagem: 'img/meu-portfolio.jpg',
+    alt: 'Capa do projeto Meu Portfólio - Site pessoal para apresentação de habilidades e projetos',
+    descricao: 'Projeto de desenvolvimento de um site pessoal de portfólio, criado para apresentar minhas habilidades, conhecimentos em programação, tecnologias utilizadas e projetos desenvolvidos. A plataforma possui seções sobre mim, competências técnicas, apresentação de projetos e contato, com foco em demonstrar minha evolução na área de desenvolvimento web.',
+    linkRepositorio: 'https://github.com/gabrielnunescarvalho12-ops/projeto-web.git',
+    linkDemonstracao: '[link-demonstracao]'
+  }
+];
+
+// Função responsável por gerar a marcação HTML de um cartão de projeto individual
+function criarCartaoProjeto(projeto) {
+  return `
+    <article class="cartao-projeto">
+      <h3 class="titulo-projeto">${projeto.titulo}</h3>
+      <img src="${projeto.imagem}" alt="${projeto.alt}" class="imagem-projeto">
+      <p class="descricao-projeto">${projeto.descricao}</p>
+      <div class="links-projeto">
+        <a href="${projeto.linkRepositorio}" class="link-projeto" target="_blank" rel="noopener noreferrer">Ver código</a>
+        <a href="${projeto.linkDemonstracao}" class="link-projeto" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+      </div>
+    </article>
+  `;
+}
+
+// Função responsável por renderizar a lista de projetos na página
+function renderizarProjetos() {
+  const gradeProjetos = document.querySelector('#grade-projetos');
+  if (!gradeProjetos) return;
+
+  const cartoesHtml = listaProjetos.map(criarCartaoProjeto).join('');
+  gradeProjetos.innerHTML = cartoesHtml;
+}
+
+// Inicializa a renderização dinâmica dos projetos
+renderizarProjetos();
+
